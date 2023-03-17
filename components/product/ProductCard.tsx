@@ -44,10 +44,11 @@ function ProductCard({ product, preload }: Props) {
   const {
     url,
     productID,
-    name,
     image: images,
     offers,
+    isVariantOf,
   } = product;
+  const { name } = isVariantOf || product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
 
