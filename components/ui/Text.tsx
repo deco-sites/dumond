@@ -12,6 +12,8 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "positive"
     | "critical";
   variant?:
+    | "primary"
+    | "secondary"
     | "heading-1"
     | "heading-2"
     | "heading-3"

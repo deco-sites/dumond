@@ -1,7 +1,7 @@
 {
   "name": "Dumond | Deco",
   "short_name": "Dumond",
-  "theme_color": "#8c3d3d",
+  "theme_color": "#000000",
   "background_color": "#ffffff",
   "display": "browser",
   "scope": "/",
