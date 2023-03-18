@@ -67,8 +67,8 @@ function Header(
   return (
     <header class={`h-[${headerHeight}]`}>
       <div class="bg-default fixed w-full z-50">
-        <Alert alerts={alerts} />
         <Navbar items={navItems} searchbar={searchbar} />
+        <Alert alerts={alerts} />
       </div>
 
       <Modals

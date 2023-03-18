@@ -30,7 +30,11 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <div
+        class={`w-[23px] h-[22px] bg-no-repeat`}
+        style="background-image: url(/icon-sprites.png); background-position: -131px -179px;"
+      >
+      </div>
     </Button>
   );
 }
@@ -50,7 +54,11 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <div
+        class={`w-[20px] h-[27px] bg-no-repeat`}
+        style="background-image: url(/icon-sprites.png); background-position: -155px -203px;"
+      >
+      </div>
       {totalItems && (
         <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
           {totalItems}

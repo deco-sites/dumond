@@ -347,6 +347,10 @@ const manifest: DecoManifest = {
                     },
                     {
                       "type": "string",
+                      "const": "WishList",
+                    },
+                    {
+                      "type": "string",
                       "const": "ShoppingCart",
                     },
                     {
@@ -550,6 +554,10 @@ const manifest: DecoManifest = {
                               },
                               {
                                 "type": "string",
+                                "const": "WishList",
+                              },
+                              {
+                                "type": "string",
                                 "const": "ShoppingCart",
                               },
                               {
@@ -701,7 +709,7 @@ const manifest: DecoManifest = {
                 ],
                 "title": "Placeholder",
                 "description": "Search bar default placeholder message",
-                "default": "What are you looking for?",
+                "default": "Buscar",
               },
               "action": {
                 "type": [

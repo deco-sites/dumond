@@ -8,6 +8,7 @@ export type AvailableIcons =
   | "ChevronDown"
   | "QuestionMarkCircle"
   | "User"
+  | "WishList"
   | "ShoppingCart"
   | "Bars3"
   | "Heart"

@@ -107,13 +107,14 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div class="flex flex-col py-4 px-0 pt-0 md:(py-6 px-20)">
       <div class="flex gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="relative h-10 flex-grow flex flex-row-reverse items-center gap-3 px-3 py-2 border-y-1 border-searchbar"
         >
+          <div class="w-[5px] h-[40px] bg-red-600 absolute left-0"></div>
           <Button
             variant="icon"
             aria-label="Search"
@@ -121,7 +122,7 @@ function Searchbar({
             tabIndex={-1}
           >
             <Icon
-              class="text-subdued"
+              class="text-search-icon"
               id="MagnifyingGlass"
               width={20}
               height={20}
@@ -131,7 +132,7 @@ function Searchbar({
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden text-default placeholder-black"
             name={name}
             defaultValue={query}
             onInput={(e) => {
