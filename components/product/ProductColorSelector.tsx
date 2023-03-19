@@ -44,11 +44,7 @@ function ColorSelector({ product }: Props) {
 
   useEffect(() => {
     fetchData().then((data) => {
-      const similars = data.filter((similar: Similars) =>
-        similar.productId !== product.isVariantOf?.productGroupID
-      );
-
-      const uniqueSimilars = similars.reduce(
+      const uniqueSimilars = data.reduce(
         (accumulator: Similars[], current: Similars) => {
           if (
             !accumulator.find((item: Similars) =>

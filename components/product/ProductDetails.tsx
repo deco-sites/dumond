@@ -9,14 +9,20 @@ import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { useId } from "preact/hooks";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type {
+  ImageObject,
+  ProductDetailsPage,
+} from "deco-sites/std/commerce/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
+
+interface Dots {
+  imagesProduct?: ImageObject[];
+}
 
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
@@ -38,7 +44,7 @@ function NotFound() {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-0 md:top-1/2 md:translate-y-[-50%]">
         <Button
           class="h-12 w-12 bg-arrow-left bg-no-repeat focus:outline-none"
           variant="arrow"
@@ -46,7 +52,7 @@ function Controls() {
           aria-label="Previous item"
         />
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 md:absolute md:right-0 md:top-1/2 md:translate-y-[-50%]">
         <Button
           class="h-12 w-12 bg-arrow-right bg-no-repeat focus:outline-none"
           variant="arrow"
@@ -54,6 +60,45 @@ function Controls() {
           aria-label="Next item"
         />
       </div>
+    </>
+  );
+}
+
+function Dots({ imagesProduct }: Dots) {
+  return (
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @property --dot-progress {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+          }`,
+        }}
+      >
+      </style>
+      <ol class="flex items-center justify-center col-span-full z-10 row-start-4 lg:flex-col lg:z-0 lg:justify-start lg:mt-[30px] md:max-h-[373px]">
+        {imagesProduct?.map((_: ImageObject, index: number) => (
+          <li class="h-full lg:h-auto">
+            <button
+              data-dot={index}
+              aria-label={`go to slider item ${index}`}
+              class="h-full w-[56px] rounded focus:outline-none group"
+            >
+              <Image
+                src={_.url!}
+                alt={_.alternateName}
+                width={56}
+                height={56}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </button>
+          </li>
+        ))}
+      </ol>
     </>
   );
 }
@@ -73,10 +118,12 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { name } = isVariantOf || product;
   const sliderId = useId();
+  const thumbsSliderId = useId();
   const { price, listPrice, seller, installments, discount } = useOffer(offers);
+  const [front, back] = images ?? [];
 
   return (
-    <Container id={sliderId} class="py-0 sm:py-10">
+    <Container class="py-0 sm:py-10">
       {/* Breadcrumb */}
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
@@ -101,7 +148,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
       </div>
       <div class="flex flex-col gap-4 px-[20px] sm:flex-row sm:gap-10">
         {/* Image Gallery */}
-        <div class="grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]">
+        <div
+          id={sliderId}
+          class="md:hidden grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
+        >
           <Slider class="col-span-full row-span-full scrollbar-none gap-6">
             {images?.map((img, index) => (
               <Image
@@ -128,9 +178,37 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </Button>
         </div>
 
+        {/* Image Gallery */}
+        <div
+          id={thumbsSliderId}
+          class="hidden md:flex md:w-[70%] md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
+        >
+          <Dots imagesProduct={images} />
+
+          <Slider class="col-span-full row-span-full scrollbar-none gap-6 max-w-full">
+            {images?.map((img, index) => (
+              <Image
+                style={{ aspectRatio: "442 / 442" }}
+                class="w-[100vw] max-w-[442px]"
+                src={img.url!}
+                alt={img.alternateName}
+                width={442}
+                height={442}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            ))}
+          </Slider>
+          <Controls />
+          <SliderControllerJS
+            rootId={thumbsSliderId}
+          />
+        </div>
+
         {/* Product Info */}
         <div class="flex-auto pl-[5%] sm:px-0">
-          <div class="hidden md:flex flex-col">
+          <div class="hidden md:flex flex-col md:max-w-[486px]">
             <h1>
               <Text
                 class="uppercase tracking-4px font-terciary font-heading-1"
@@ -140,7 +218,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               </Text>
             </h1>
             <Text
-              class="pl-[5%] text-[12px] tracking-[1px] text-black"
+              class="pl-[5%] md:pl-0 text-[12px] tracking-[1px] text-black"
               variant="terciary"
             >
               REF: {gtin}

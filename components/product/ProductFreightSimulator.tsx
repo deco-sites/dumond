@@ -9,10 +9,12 @@ interface Props {
 
 function FreightSimulator({ product }: Props) {
   return (
-    <div class="flex flex-col">
-      <Text class="uppercase leading-[41px]" variant="primary">Frete:</Text>
+    <div class="flex flex-col md:flex-row">
+      <Text class="uppercase leading-[41px] md:w-[20%]" variant="primary">
+        Frete:
+      </Text>
 
-      <div class="relative">
+      <div class="relative md:w-full">
         <input
           class="w-full h-[42px] placeholder-black text-[12px] font-terciary text-black pt-[13px] px-[20px] pb-[12px] border-black border-[2px] border-solid"
           type="tel"
