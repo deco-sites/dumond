@@ -14,17 +14,16 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
-      variant={level === 0 ? "menu" : "caption"}
-    >
-      {item.label}
-    </Text>
+      dangerouslySetInnerHTML={{ __html: item.label }}
+      class="flex-grow flex items-center justify-start font-secondary uppercase text-white tracking-[3px]"
+      variant={level === 0 ? "menu-items-mobile" : "caption"}
+    />
   );
 
   return (
-    <li>
+    <li class="border-none ml-[10px]">
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-center w-full py-[12.5px] ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
@@ -79,45 +78,38 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
+      <ul class="flex flex-col divide-y divide-default">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
 
-      <ul class="flex flex-col py-2 bg-hover">
+      <div class="w-full h-[1px] mt-[45px] mb-[25px] block border-b border-separador-mobile">
+      </div>
+
+      <ul class="flex flex-col py-2 bg-badge">
         <li>
           <a
-            class="flex items-center gap-4 px-4 py-2"
+            class="flex items-center gap-4 px-2.5 py-[12.5px]"
             href="https://www.deco.cx"
           >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
+            <img
+              width={12}
+              height={16}
+              src="/icon-marker-mobile.png"
+            />
+            <Text class="text-white font-secondary text-xs font-bold uppercase tracking-[3px]">
+              Nossas lojas
+            </Text>
           </a>
         </li>
         <li>
           <a
-            class="flex items-center gap-4 px-4 py-2"
+            class="flex items-center gap-4 px-2.5 py-[12.5px]"
             href="https://www.deco.cx"
           >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
+            <div class="w-[14px] h-[2px] bg-white"></div>
+            <Text class="text-white font-secondary text-xs font-bold uppercase tracking-[3px]">
+              Seja um franqueado
+            </Text>
           </a>
         </li>
       </ul>

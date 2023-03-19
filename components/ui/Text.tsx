@@ -21,11 +21,14 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "heading-terciary-1"
     | "terciary"
     | "menu"
+    | "menu-items"
+    | "menu-items-mobile"
     | "button"
     | "body"
     | "caption"
     | "breadcrumb"
     | "bold"
+    | "alerts"
     | "list-price";
 };
 

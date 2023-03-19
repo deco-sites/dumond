@@ -351,6 +351,10 @@ const manifest: DecoManifest = {
                     },
                     {
                       "type": "string",
+                      "const": "WishList",
+                    },
+                    {
+                      "type": "string",
                       "const": "ShoppingCart",
                     },
                     {
@@ -551,6 +555,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "User",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WishList",
                               },
                               {
                                 "type": "string",

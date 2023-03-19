@@ -14,13 +14,12 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
+      <a href={href} class="px-[5px]">
         <Text
-          class="group-hover:border-black border-solid border-b border-white"
-          variant="menu"
-        >
-          {label}
-        </Text>
+          dangerouslySetInnerHTML={{ __html: label }}
+          class="font-secondary uppercase tracking-[3px]"
+          variant="menu-items"
+        />
       </a>
 
       {children && children.length > 0 &&

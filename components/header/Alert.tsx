@@ -17,17 +17,16 @@ function Alert({ alerts = [], interval = 5 }: Props) {
 
   return (
     <div id={id}>
-      <Slider class="bg-badge gap-6 scrollbar-none">
+      <div class="bg-badge gap-6 scrollbar-none p-2.5 pt-[12px] text-center md:mt-[15px]">
         {alerts.map((alert) => (
           <Text
-            class="flex justify-center items-center w-screen h-[38px]"
-            variant="caption"
+            dangerouslySetInnerHTML={{ __html: alert }}
+            class="inline-block"
+            variant="alerts"
             tone="default-inverse"
-          >
-            {alert}
-          </Text>
+          />
         ))}
-      </Slider>
+      </div>
 
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
     </div>
