@@ -54,6 +54,7 @@ const options: Omit<Options, "selfURL"> = {
         "critical": "#ce2e2e",
         "search-icon": "#ff0000",
         "menu-items": "#000000",
+        "menu-items-mobile": "#FFFFFF",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -63,6 +64,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#B44125",
         "searchbar": "#D6D6D6",
+        "separador-mobile": "#999",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -73,6 +75,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
         "menu-items": ["10.6px", "10.6px"],
+        "menu-items-mobile": ["16px", "16px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
@@ -85,6 +88,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-3": "500",
         "menu": "400",
         "menu-items": "700",
+        "menu-items-mobile": "700",
         "button": "700",
         "body": "400",
         "caption": "400",
@@ -152,7 +156,7 @@ const options: Omit<Options, "selfURL"> = {
   plugins: {
     backdrop: {
       "&::backdrop": {
-        background: "rgba(0, 0, 0, 0.5)",
+        background: "rgba(0, 0, 0, 0)",
       },
     },
     "scroll-snap-center": {
