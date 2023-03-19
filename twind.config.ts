@@ -122,6 +122,11 @@ const options: Omit<Options, "selfURL"> = {
       letterSpacing: {
         "4px": "4px",
       },
+      backgroundImage: {
+        "arrow-right": "url('/arrow-right.png')",
+        "arrow-left": "url('/arrow-left.png')",
+        "ico-cami": "url('/caminhao.png')",
+      },
     },
     fontFamily: {
       primary: ["Mada", "sans-serif"],

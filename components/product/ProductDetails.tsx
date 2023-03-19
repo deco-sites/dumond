@@ -1,3 +1,4 @@
+import Image from "deco-sites/std/components/Image.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import ProductColorSelector from "$store/islands/ProductColorSelector.tsx";
 import ProductFreightSimulator from "$store/islands/ProductFreightSimulator.tsx";
@@ -39,31 +40,19 @@ function Controls() {
     <>
       <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
         <Button
-          class="h-12 w-12"
-          variant="icon"
+          class="h-12 w-12 bg-arrow-left bg-no-repeat focus:outline-none"
+          variant="arrow"
           data-slide="prev"
           aria-label="Previous item"
-        >
-          <Icon
-            size={20}
-            id="ChevronLeft"
-            strokeWidth={3}
-          />
-        </Button>
+        />
       </div>
       <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
         <Button
-          class="h-12 w-12"
-          variant="icon"
+          class="h-12 w-12 bg-arrow-right bg-no-repeat focus:outline-none"
+          variant="arrow"
           data-slide="next"
           aria-label="Next item"
-        >
-          <Icon
-            size={20}
-            id="ChevronRight"
-            strokeWidth={3}
-          />
-        </Button>
+        />
       </div>
     </>
   );
@@ -87,14 +76,14 @@ function Details({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, discount } = useOffer(offers);
 
   return (
-    <Container class="py-0 sm:py-10">
+    <Container id={sliderId} class="py-0 sm:py-10">
       {/* Breadcrumb */}
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
       />
 
       {/* Code and name */}
-      <div class="max-w-300px mx-auto">
+      <div class="md:hidden max-w-300px mx-auto">
         <h1>
           <Text
             class="uppercase tracking-4px font-terciary font-heading-1"
@@ -112,36 +101,21 @@ function Details({ page }: { page: ProductDetailsPage }) {
       </div>
       <div class="flex flex-col gap-4 px-[20px] sm:flex-row sm:gap-10">
         {/* Image Gallery */}
-        <div
-          id={sliderId}
-          class="grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
-        >
+        <div class="grid relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]">
           <Slider class="col-span-full row-span-full scrollbar-none gap-6">
             {images?.map((img, index) => (
-              <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
-                <Picture class="w-full" preload={index === 0}>
-                  <Source
-                    media="(max-width: 767px)"
-                    fetchPriority={index === 0 ? "high" : "auto"}
-                    src={img.url!}
-                    width={360}
-                    height={600}
-                  />
-                  <Source
-                    media="(min-width: 768px)"
-                    fetchPriority={index === 0 ? "high" : "auto"}
-                    src={img.url!}
-                    width={1440}
-                    height={600}
-                  />
-                  <img
-                    class="object-cover w-full sm:h-full"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    src={img.url!}
-                    alt={img.alternateName}
-                  />
-                </Picture>
-              </div>
+              <Image
+                style={{ aspectRatio: "432 / 432" }}
+                class="min-w-[100vw] sm:min-w-0 sm:w-auto sm:h-[600px]"
+                sizes="(max-width: 640px) 100vw, 30vw"
+                src={img.url!}
+                alt={img.alternateName}
+                width={432}
+                height={432}
+                // Preload LCP image for better web vitals
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             ))}
           </Slider>
 
@@ -156,8 +130,24 @@ function Details({ page }: { page: ProductDetailsPage }) {
 
         {/* Product Info */}
         <div class="flex-auto pl-[5%] sm:px-0">
+          <div class="hidden md:flex flex-col">
+            <h1>
+              <Text
+                class="uppercase tracking-4px font-terciary font-heading-1"
+                variant="heading-terciary-1"
+              >
+                {name}
+              </Text>
+            </h1>
+            <Text
+              class="pl-[5%] text-[12px] tracking-[1px] text-black"
+              variant="terciary"
+            >
+              REF: {gtin}
+            </Text>
+          </div>
           <Text
-            class="text-[12px] tracking-[1px] text-black"
+            class="md:hidden text-[12px] tracking-[1px] text-black"
             variant="terciary"
           >
             REF: {gtin}
@@ -195,16 +185,23 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
             </div>
-            <Text
-              class="uppercase text-[10px] tracking-[3.2px]"
-              tone="default"
-              variant="terciary"
-            >
-              ou {installments?.billingDuration}x de R${" "}
-              <strong>
-                {installments?.billingIncrement?.toString().replace(".", ",")}
-              </strong>
-            </Text>
+            {installments?.billingDuration && installments?.billingIncrement
+              ? (
+                <Text
+                  class="uppercase text-[10px] tracking-[3.2px]"
+                  tone="default"
+                  variant="terciary"
+                >
+                  ou {installments?.billingDuration}x de R${" "}
+                  <strong>
+                    {installments?.billingIncrement?.toString().replace(
+                      ".",
+                      ",",
+                    )}
+                  </strong>
+                </Text>
+              )
+              : null}
             <div class="w-[45px] bg-black h-[1px] absolute bottom-0 block">
             </div>
           </div>
@@ -224,7 +221,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
                   sellerId={seller}
                 />
                 <Text
-                  class="w-full text-center font-bold font-[14.4px] leading-[34px] mb-[3%]"
+                  class="w-full text-center font-bold font-[14.4px] leading-[14.4px] h-[34px] mb-[3%]"
                   variant="primary"
                 >
                   5% extra em compras à vista com cartão de crédito
