@@ -37,7 +37,7 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
         "badge": "#000000", // shopping cart tem isso tambem
-        "footer": "##f6f6f6",
+        "footer": "#f6f6f6",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
@@ -55,6 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "search-icon": "#ff0000",
         "menu-items": "#000000",
         "menu-items-mobile": "#FFFFFF",
+        "institucional": "#8e8e8e",
       },
       borderColor: {
         "default": "#D4DBD7",
