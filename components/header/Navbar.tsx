@@ -65,16 +65,22 @@ function Navbar({ items, searchbar }: {
       {/* Desktop Version */}
       <div class="hidden md:flex flex-col items-end px-10 max-w-[1620px] mt-[18px] my-0 mx-auto">
         <div class="flex flex-row items-center mb-[6px]">
-          <Text class="font-terciary mr-[20px]">Blog</Text>
+          <Text class="font-terciary uppercase text-[11px] tracking-[4px] font-bold mr-[20px]">
+            Blog
+          </Text>
           <img
             class="mr-[5px]"
             width={12}
             height={16}
             src="/icon-marker-header.png"
           />
-          <Text class="font-terciary mr-5">Nossas Lojas</Text>
+          <Text class="font-terciary uppercase text-[10px] tracking-[4px] font-bold mr-5">
+            Nossas Lojas
+          </Text>
           <div class="w-[20px] h-[2px] bg-black mr-2.5"></div>{" "}
-          <Text class="font-terciary">Seja um franqueado</Text>
+          <Text class="font-secondary uppercase text-[10px] tracking-[4px] font-bold">
+            Seja um franqueado
+          </Text>
         </div>
         <div class="hidden md:flex flex-row justify-between items-center w-full">
           <div class="flex-none w-[232px]">
