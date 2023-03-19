@@ -14,7 +14,10 @@ function Item({ name, item }: { name?: string; item?: string }) {
   return (
     <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
       <a href={item}>
-        <Text variant="breadcrumb" class="uppercase font-secondary font-bold">
+        <Text
+          variant="breadcrumb"
+          class="md:text-[11px] uppercase font-secondary font-bold"
+        >
           {name}
         </Text>
       </a>
@@ -29,7 +32,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
       {itemListElement.map((item) => (
         <>
           <li>
-            <Text variant="breadcrumb">{">"}</Text>
+            <Text class="md:text-[16px]" variant="breadcrumb">{">"}</Text>
           </li>
           <Item {...item} />
         </>
