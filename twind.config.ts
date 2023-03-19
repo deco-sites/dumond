@@ -42,6 +42,8 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "action": "#009053",
+        "overlay": "rgba(0,0,0,.03)",
       },
       textColor: {
         "default": "#000000",
@@ -52,6 +54,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#ce2e2e",
+        "broke-caption": "#999999",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -60,6 +63,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "broke": "#CCCCCC",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -68,11 +72,13 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
+        "heading-terciary-1": ["30px", "39px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "breadcrumb": ["8px", "8px"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -83,6 +89,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "bold": "700",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -109,10 +116,17 @@ const options: Omit<Options, "selfURL"> = {
         md: "0px 1px 5px 0px #00000024",
         lg: "0px 4px 10px 0px #0000001F",
       },
+      maxWidth: {
+        "300px": "300px",
+      },
+      letterSpacing: {
+        "4px": "4px",
+      },
     },
     fontFamily: {
       primary: ["Mada", "sans-serif"],
       secondary: ["Oswald", "sans-serif"],
+      terciary: ["Montserrat", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {

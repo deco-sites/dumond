@@ -1,5 +1,6 @@
 import { Children } from "preact/compat";
 import type { JSX } from "preact";
+import Icon from "./Icon.tsx";
 
 type Props = JSX.IntrinsicElements["ul"] & {
   snap?: string;
@@ -14,7 +15,7 @@ function Slider({
   return (
     <ul
       data-slider
-      class={`grid grid-flow-col items-center overflow-x-auto overscroll-x-contain snap-x snap-mandatory ${_class}`}
+      class={`relative grid grid-flow-col items-center overflow-x-auto overscroll-x-contain snap-x snap-mandatory ${_class}`}
       {...props}
     >
       {Children.map(children, (child, index) => (
