@@ -137,6 +137,7 @@ const options: Omit<Options, "selfURL"> = {
         "arrow-right": "url('/arrow-right.png')",
         "arrow-left": "url('/arrow-left.png')",
         "ico-cami": "url('/caminhao.png')",
+        "lupa": "url('/lupa.png')",
       },
     },
     fontFamily: {
