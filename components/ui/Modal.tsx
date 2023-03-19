@@ -17,6 +17,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
   mode?: "sidebar-right" | "sidebar-left" | "center";
+  modalBg?: string;
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -31,6 +32,7 @@ const Modal = ({
   open,
   title,
   mode = "sidebar-right",
+  modalBg = "bg-black",
   onClose,
   children,
   loading,
@@ -66,7 +68,9 @@ const Modal = ({
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="fixed top-[50px] pt-[18px] pl-[20px]  w-full h-full bg-black flex flex-col">
+      <section
+        class={`fixed top-[50px] pt-[18px] pl-[20px] ${modalBg} w-full h-full flex flex-col`}
+      >
         {title
           ? (
             <header class="flex px-4 justify-between items-center pb-6">
