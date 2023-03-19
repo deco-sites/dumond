@@ -46,7 +46,7 @@ const buttons = [
   ["tertiary", "Tertiary"],
   [
     "icon",
-    <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />,
+    <Icon id="ShoppingCart" width={20} height={27} />,
   ],
 ] as const;
 

@@ -52,6 +52,9 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#ce2e2e",
+        "search-icon": "#ff0000",
+        "menu-items": "#000000",
+        "menu-items-mobile": "#FFFFFF",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -60,6 +63,8 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "searchbar": "#D6D6D6",
+        "separador-mobile": "#999",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -69,16 +74,21 @@ const options: Omit<Options, "selfURL"> = {
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
+        "menu-items": ["10.6px", "10.6px"],
+        "menu-items-mobile": ["16px", "16px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "alerts": ["16px", "16px"],
       },
       fontWeight: {
         "heading-1": "500",
         "heading-2": "500",
         "heading-3": "500",
         "menu": "400",
+        "menu-items": "700",
+        "menu-items-mobile": "700",
         "button": "700",
         "body": "400",
         "caption": "400",
@@ -114,6 +124,7 @@ const options: Omit<Options, "selfURL"> = {
       primary: ["Mada", "sans-serif"],
       secondary: ["Oswald", "sans-serif"],
       serif: ["inherit", "serif"],
+      alerts: ["Mada", "sans-serif"],
     },
     screens: {
       sm: "640px",
@@ -145,7 +156,7 @@ const options: Omit<Options, "selfURL"> = {
   plugins: {
     backdrop: {
       "&::backdrop": {
-        background: "rgba(0, 0, 0, 0.5)",
+        background: "rgba(0, 0, 0, 0)",
       },
     },
     "scroll-snap-center": {
