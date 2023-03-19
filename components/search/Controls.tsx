@@ -27,22 +27,29 @@ function Controls({ page }: { page: ProductListingPage }) {
       <div class="flex flex-row items-center sm:p-0 mb-2">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
+      <div class="flex flex-row sm:gap-4 items-center border-b-1 border-default md:border-none">
+        <Sort />
         <Button
-          variant="tertiary"
+          variant="primary"
+          class="bg-black w-[50%] relative text-white font-normal text-center uppercase text-[16px] rounded-none"
           onClick={() => {
             open.value = true;
           }}
         >
           Filtrar
-          <Icon id="FilterList" width={16} height={16} />
+          <Icon
+            class="absolute right-[16px] top-1/2 translate-y-[-50%]"
+            id="FilterList"
+            width={16}
+            height={16}
+          />
         </Button>
-        <Sort />
       </div>
 
       <Modal
         title="Filtrar"
         mode="sidebar-right"
+        modalBg="bg-white"
         open={open.value}
         onClose={() => {
           open.value = false;
