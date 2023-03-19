@@ -19,6 +19,7 @@ type SimilarSku = {
 };
 
 type Similars = {
+  productId: string;
   linkText: string;
   items: SimilarSku[];
 };
@@ -30,7 +31,6 @@ function ColorSelector({ product }: Props) {
     const response = await fetch(
       `/api/catalog_system/pub/products/crossselling/similars/${product.isVariantOf?.productGroupID}`,
       {
-        mode: "no-cors",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -43,16 +43,36 @@ function ColorSelector({ product }: Props) {
   }
 
   useEffect(() => {
-    fetchData().then((data) => setSimilars(data));
-  }, []);
+    fetchData().then((data) => {
+      const similars = data.filter((similar: Similars) =>
+        similar.productId !== product.isVariantOf?.productGroupID
+      );
 
-  if (!similars.length) return null;
+      const uniqueSimilars = similars.reduce(
+        (accumulator: Similars[], current: Similars) => {
+          if (
+            !accumulator.find((item: Similars) =>
+              item.productId === current.productId
+            )
+          ) {
+            accumulator.push(current);
+          }
+          return accumulator;
+        },
+        [],
+      );
+
+      setSimilars(
+        uniqueSimilars,
+      );
+    });
+  }, []);
 
   return (
     <div class="flex flex-col">
       <Text class="uppercase font-[14px]" variant="primary">Cores:</Text>
 
-      <div class="flex flex-row gap-[11px]">
+      <div class="flex flex-row flex-wrap gap-[11px]">
         {similars.map((similar) => (
           <div class="block relative">
             <div class="bg-overlay absolute top-0 left-0 w-full h-full pointer-events-none">
