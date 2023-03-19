@@ -209,12 +209,33 @@ function Details({ page }: { page: ProductDetailsPage }) {
               rootId={thumbsSliderId}
             />
 
-            <div class="absolute top-[16px] right-[16px] flex flex-col">
+            <div class="absolute top-[16px] right-[16px] flex flex-col gap-[20px]">
               <Button
                 variant="iconButton"
-                class="absolute top-[16px] right-[16px] border-none"
+                class="border-none"
               >
                 <Icon id="WishList" width={24} height={24} />
+              </Button>
+              <Button variant="iconButton" class="border-none">
+                <span
+                  class="h-[20px] w-[9px]"
+                  style="background-image: url(/icon-sprites.png); background-position: -13px -0px;"
+                >
+                </span>
+              </Button>
+              <Button variant="iconButton" class="border-none">
+                <span
+                  class="h-[17px] w-[21px]"
+                  style="background-image: url(/icon-sprites.png); background-position: 0 -151px;"
+                >
+                </span>
+              </Button>
+              <Button variant="iconButton" class="border-none">
+                <span
+                  class="h-[22px] w-[16px]"
+                  style="background-image: url(/icon-sprites.png); background-position:-46px -151px;"
+                >
+                </span>
               </Button>
             </div>
           </div>
