@@ -107,14 +107,14 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col py-4 px-0 pt-0 md:(py-6 px-20)">
-      <div class="flex gap-4">
+    <div class="flex flex-col py-4 px-0 pt-0 md:(p-0 flex-auto max-w-[430px] mr-[50px])">
+      <div class="flex gap-4 pr-0.5">
         <form
           id="searchbar"
           action={action}
-          class="relative h-10 flex-grow flex flex-row-reverse items-center gap-3 px-3 py-2 border-y-1 border-searchbar"
+          class="relative h-10 flex-grow flex flex-row-reverse items-center gap-3 px-3 py-2 border-1 border-searchbar"
         >
-          <div class="w-[5px] h-[40px] bg-red-600 absolute left-0"></div>
+          <div class="w-[5px] h-[40px] bg-red-500 absolute left-0"></div>
           <Button
             variant="icon"
             aria-label="Search"

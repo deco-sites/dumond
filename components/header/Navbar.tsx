@@ -8,6 +8,7 @@ import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
+import Text from "../ui/Text.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];
@@ -56,31 +57,75 @@ function Navbar({ items, searchbar }: {
           </div>
         </div>
         {/* <HeaderButton variant="search" /> */}
-        <Searchbar />
+        <div class="md:hidden">
+          <Searchbar />
+        </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
-          </a>
+      <div class="hidden md:flex flex-col items-end px-10 max-w-[1620px] mt-[18px] my-0 mx-auto">
+        <div class="flex flex-row items-center mb-[6px]">
+          <Text class="font-terciary mr-[20px]">Blog</Text>
+          <img
+            class="mr-[5px]"
+            width={12}
+            height={16}
+            src="/icon-marker-header.png"
+          />
+          <Text class="font-terciary mr-5">Nossas Lojas</Text>
+          <div class="w-[20px] h-[2px] bg-black mr-2.5"></div>{" "}
+          <Text class="font-terciary">Seja um franqueado</Text>
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
-          <Button
-            as="a"
-            variant="icon"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </Button>
-          <HeaderButton variant="cart" />
+        <div class="hidden md:flex flex-row justify-between items-center w-full">
+          <div class="flex-none w-[232px]">
+            <a href="/" aria-label="Store logo" class="block p-0 w-[232px]">
+              <img class={`w-[232px] h-[46px]`} src="/logo-dumond.png" />
+            </a>
+          </div>
+          <div class="flex-auto flex ml-[5px] mt-[15px]">
+            {items.map((item) => <NavItem item={item} />)}
+          </div>
+          <div class="flex flex-auto mt-[18px]">
+            <Searchbar />
+            <div class="flex-none flex items-center justify-end gap-2">
+              {/* <HeaderSearchMenu searchbar={searchbar} /> */}
+              <Button
+                class="relative bg-transparent px-1.5"
+                href="/login"
+                aria-label="Log in"
+              >
+                <img
+                  class={`absolute right-full`}
+                  width={20}
+                  height={20}
+                  src="/icon-user-desktop.png"
+                />
+
+                <Text
+                  variant="menu-items"
+                  class="font-secondary uppercase tracking-[3px] text-xs"
+                >
+                  entrar
+                </Text>
+
+                <div
+                  class={`w-[17px] h-[10px] bg-no-repeat`}
+                  style="background-image: url(/icon-sprites.png); background-position: -15px -75px;"
+                >
+                </div>
+              </Button>
+
+              <Button
+                as="a"
+                variant="icon"
+                href="/wishlist"
+                aria-label="Log in"
+              >
+                <Icon id="WishList" width={26} height={28} />
+              </Button>
+              <HeaderButton variant="cart" />
+            </div>
+          </div>
         </div>
       </div>
     </>

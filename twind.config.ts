@@ -53,6 +53,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#ce2e2e",
         "search-icon": "#ff0000",
+        "menu-items": "#000000",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -71,6 +72,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
+        "menu-items": ["10.6px", "10.6px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
@@ -82,6 +84,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-2": "500",
         "heading-3": "500",
         "menu": "400",
+        "menu-items": "700",
         "button": "700",
         "body": "400",
         "caption": "400",

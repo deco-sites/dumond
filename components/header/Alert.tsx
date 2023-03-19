@@ -17,7 +17,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
 
   return (
     <div id={id}>
-      <div class="bg-badge gap-6 scrollbar-none p-2.5 pt-[12px] text-center">
+      <div class="bg-badge gap-6 scrollbar-none p-2.5 pt-[12px] text-center md:mt-[15px]">
         {alerts.map((alert) => (
           <Text
             dangerouslySetInnerHTML={{ __html: alert }}

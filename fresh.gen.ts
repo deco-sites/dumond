@@ -709,7 +709,7 @@ const manifest: DecoManifest = {
                 ],
                 "title": "Placeholder",
                 "description": "Search bar default placeholder message",
-                "default": "Buscar",
+                "default": "What are you looking for?",
               },
               "action": {
                 "type": [
