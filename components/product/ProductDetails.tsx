@@ -44,7 +44,7 @@ function NotFound() {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-[56px] md:top-1/2 md:translate-y-[-50%]">
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 md:absolute md:left-[86px] md:top-1/2 md:translate-y-[-50%]">
         <Button
           class="h-12 w-12 bg-arrow-left bg-no-repeat focus:outline-none"
           variant="arrow"
@@ -182,7 +182,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </Button>
           </div>
 
-          {/* Image Gallery */}
+          {/* Image Gallery Desktop */}
           <div
             id={thumbsSliderId}
             class="hidden md:flex md:w-[70%] md:overflow-hidden md:max-h-[552px] flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 md:relative"
@@ -326,7 +326,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </div>
 
             <Button
-              variant="secondary"
+              variant="iconButton"
               class="relative mb-[30px] ml-[15px] mt-[15px] uppercase flex justify-center items-center h-[41px] rounded-none border-[1px] border-solid border-black w-[248px]"
             >
               <img
