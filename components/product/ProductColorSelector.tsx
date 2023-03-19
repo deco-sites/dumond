@@ -46,6 +46,8 @@ function ColorSelector({ product }: Props) {
     fetchData().then((data) => setSimilars(data));
   }, []);
 
+  if (!similars.length) return null;
+
   return (
     <div class="flex flex-col">
       <Text class="uppercase font-[14px]" variant="primary">Cores:</Text>
