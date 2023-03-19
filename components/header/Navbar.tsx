@@ -6,7 +6,6 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import Text from "../ui/Text.tsx";
 
@@ -56,9 +55,8 @@ function Navbar({ items, searchbar }: {
             <HeaderButton variant="cart" />
           </div>
         </div>
-        {/* <HeaderButton variant="search" /> */}
         <div class="md:hidden">
-          <Searchbar />
+          <Searchbar placeholder={searchbar.placeholder} />
         </div>
       </div>
 
@@ -92,9 +90,8 @@ function Navbar({ items, searchbar }: {
             {items.map((item) => <NavItem item={item} />)}
           </div>
           <div class="flex flex-auto mt-[18px]">
-            <Searchbar />
+            <Searchbar placeholder={searchbar.placeholder} />
             <div class="flex-none flex items-center justify-end gap-2">
-              {/* <HeaderSearchMenu searchbar={searchbar} /> */}
               <Button
                 class="relative bg-transparent px-1.5"
                 href="/login"

@@ -145,7 +145,8 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
+          {
+            /* <button
             type="button"
             aria-label="Clean search"
             class="focus:outline-none"
@@ -159,7 +160,8 @@ function Searchbar({
             }}
           >
             <Text variant="caption" tone="default">limpar</Text>
-          </button>
+          </button> */
+          }
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
