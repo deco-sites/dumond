@@ -13,8 +13,11 @@ function AddToCartButton({ skuId, sellerId }: Props) {
   });
 
   return (
-    <Button {...props} class="w-full">
-      Adicionar à Sacola
+    <Button
+      {...props}
+      class="w-full h-[50px] border-none uppercase bg-action text-white rounded-none font-terciary p-[16px] tracking-[1px] text-[18px] font-normal hover:bg-action hover:text-white hover:border-none hover:opacity-[0.6]"
+    >
+      Comprar
     </Button>
   );
 }

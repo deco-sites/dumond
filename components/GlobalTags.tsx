@@ -37,8 +37,8 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            @import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;900&family=Oswald:wght@400;500;700&display=swap');
-          `,
+            @import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;900&family=Oswald:wght@400;500;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+            `,
         }}
       />
     </Head>

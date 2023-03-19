@@ -14,9 +14,14 @@ function VariantSelector({ product }: Props) {
   return (
     <ul class="flex flex-col gap-4">
       {Object.keys(possibilities).map((name) => (
-        <li class="flex flex-col gap-2">
-          <Text variant="caption">{name}</Text>
-          <ul class="flex flex-row gap-2">
+        <li class="flex flex-row gap-2">
+          <Text
+            class="uppercase text-[14px] tracking-[1.6px] pt-[15px]"
+            variant="caption"
+          >
+            {name}:
+          </Text>
+          <ul class="flex flex-row flex-wrap gap-2 w-[174px]">
             {Object.entries(possibilities[name]).map(([url, value]) => (
               <li>
                 <a href={url}>

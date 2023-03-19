@@ -42,6 +42,8 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "action": "#009053",
+        "overlay": "rgba(0,0,0,.03)",
       },
       textColor: {
         "default": "#000000",
@@ -52,6 +54,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#ce2e2e",
+        "broke-caption": "#999999",
         "search-icon": "#ff0000",
         "menu-items": "#000000",
         "menu-items-mobile": "#FFFFFF",
@@ -63,6 +66,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "broke": "#CCCCCC",
         "searchbar": "#D6D6D6",
         "separador-mobile": "#999",
       },
@@ -73,6 +77,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
         "heading-3": ["20px", "24px"],
+        "heading-terciary-1": ["30px", "39px"],
         "menu": ["16px", "20px"],
         "menu-items": ["10.6px", "10.6px"],
         "menu-items-mobile": ["16px", "16px"],
@@ -80,6 +85,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
         "list-price": ["10px", "20px"],
+        "breadcrumb": ["8px", "8px"],
         "alerts": ["16px", "16px"],
       },
       fontWeight: {
@@ -93,6 +99,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "bold": "700",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -119,10 +126,22 @@ const options: Omit<Options, "selfURL"> = {
         md: "0px 1px 5px 0px #00000024",
         lg: "0px 4px 10px 0px #0000001F",
       },
+      maxWidth: {
+        "300px": "300px",
+      },
+      letterSpacing: {
+        "4px": "4px",
+      },
+      backgroundImage: {
+        "arrow-right": "url('/arrow-right.png')",
+        "arrow-left": "url('/arrow-left.png')",
+        "ico-cami": "url('/caminhao.png')",
+      },
     },
     fontFamily: {
       primary: ["Mada", "sans-serif"],
       secondary: ["Oswald", "sans-serif"],
+      terciary: ["Montserrat", "sans-serif"],
       serif: ["inherit", "serif"],
       alerts: ["Mada", "sans-serif"],
     },

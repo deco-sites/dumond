@@ -10,19 +10,24 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "price"
     | "section-title"
     | "positive"
-    | "critical";
+    | "critical"
+    | "broke-caption";
   variant?:
     | "primary"
     | "secondary"
     | "heading-1"
     | "heading-2"
     | "heading-3"
+    | "heading-terciary-1"
+    | "terciary"
     | "menu"
     | "menu-items"
     | "menu-items-mobile"
     | "button"
     | "body"
     | "caption"
+    | "breadcrumb"
+    | "bold"
     | "alerts"
     | "list-price";
 };
