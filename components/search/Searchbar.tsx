@@ -116,18 +116,13 @@ function Searchbar({
         >
           <div class="w-[5px] h-[40px] bg-red-500 absolute left-0"></div>
           <Button
+            class="relative"
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
           >
-            <Icon
-              class="text-search-icon"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
+            <span class="bg-lupa bg-no-repeat w-[16px] h-[16px] absolute right-0 top-1/2 translate-y-[-50%]" />
           </Button>
           <input
             ref={searchInputRef}
